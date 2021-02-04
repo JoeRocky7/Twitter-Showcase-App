@@ -18,16 +18,6 @@ const Random = () => {
         }).catch(err => {
             console.log(err)
         })
-
-        axios({
-            method: 'get',
-            url: 'http://localhost:3002/api/tweets/SpaceX'
-        }).then(res => {
-            setSpaceXTweets(res.data);
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err)
-        })
     }, [])
 
     return (
