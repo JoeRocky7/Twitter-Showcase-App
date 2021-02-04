@@ -11,7 +11,7 @@ const Random = () => {
     useEffect(() => {
         axios({
             method: 'get',
-            url: 'http://localhost:3002/api/tweets/NASA'
+            url: 'http://localhost:3002/api/tweets/'
         }).then(res => {
             setNasaTweets(res.data);
             console.log(res.data);

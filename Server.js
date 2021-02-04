@@ -25,7 +25,7 @@ let getTweets = [{
   }
 }]
 
-server.get("/api/tweets/NASA", (req, res) => {
+server.get("/api/tweets/", (req, res) => {
   axios(...getTweets)
   .then(function (response) {
           res.json(response.data);
@@ -36,7 +36,6 @@ server.get("/api/tweets/NASA", (req, res) => {
         });
 })
 
-console.log(getTweets[1])
 
 
 
