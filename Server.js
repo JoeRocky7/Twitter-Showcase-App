@@ -25,6 +25,10 @@ let getTweets = [{
   }
 }]
 
+
+
+
+
 server.get("/api/tweets/", (req, res) => {
   axios(...getTweets)
   .then(function (response) {
