@@ -9,16 +9,13 @@ const Random = () => {
     const [spaceXTweets, setSpaceXTweets] = useState([]);
     
     useEffect(() => {
+        const param = "NASA";
+
         axios({
             method: 'get',
-            url: 'http://localhost:3002/api/tweets/'
-        }).then(res => {
-            setNasaTweets(res.data);
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err)
-        })
-    }, [])
+            url: `/api/tweets/?search=${param}`
+        }).then(data => console.log(data))
+    }, []);
 
     return (
         <div>
@@ -27,4 +24,5 @@ const Random = () => {
         </div>
     )
 }
+
 export default Random
