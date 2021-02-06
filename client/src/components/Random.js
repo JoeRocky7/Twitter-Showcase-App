@@ -14,8 +14,13 @@ const Random = () => {
         axios({
             method: 'get',
             url: `/api/tweets/?search=${param}`
-        }).then(data => console.log(data))
-    }, []);
+        }).then(res => {
+            setNasaTweets(res.data);
+            console.log(res.data);
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [])
 
     return (
         <div>
@@ -24,5 +29,4 @@ const Random = () => {
         </div>
     )
 }
-
 export default Random
