@@ -25,20 +25,17 @@ server.get("/", (req, res) => {
 //   }
 // }]
 
-
 server.get("/api/tweets/",  (req, res) => {
   const queryString = req.query.search;
 
   axios({
     method: 'get',
-    url: `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${queryString}&count=200`,
+    url: `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${queryString}`,
     headers: {
       Authorization: "Bearer AAAAAAAAAAAAAAAAAAAAAF9BLwEAAAAAwqPxkv2I3cwhqbqHlTkx1pvOHWU%3D8inbjXB0afn1AB8uWmA93PDBTJ0rJLn1KpOfjcgXUOQ82woUkH",
-    }
-  })
-    .then(function (response) {
-      res.json(response.data);
-      console.log(response.data)
+    }}).then(function (response) {
+      res.send(response.data);
+      
     })
     .catch(function (error) {
       console.log(error);
