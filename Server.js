@@ -25,7 +25,7 @@ server.get("/", (req, res) => {
 //   }
 // }]
 
-server.get("/api/tweets/",  (req, res) => {
+server.get("/api/tweets",  (req, res) => {
   const queryString = req.query.search;
 
   axios({

@@ -1,31 +1,30 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react'
-import NasaModal from './NasaModal'
-import SpaceXModal from './SpaceXModal'
+import { useState } from 'react';
 
 const Random = () => {
-    const [nasaTweets, setNasaTweets] = useState([]);
-    const [spaceXTweets, setSpaceXTweets] = useState([]);
+    const [tweets, setTweets] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        const param = e.target.name;
+
+        axios
+        .get(`/api/tweets?search=${param}`)
+        .then((res) => setTweets(res.data))
+        .catch((err) => console.log(err))
+    };
+
+    const randomNumber = Math.floor(Math.random() * tweets.length);
+    console.log(randomNumber);
     
-    useEffect(() => {
-        const param = "NASA";
-
-        axios({
-            method: 'get',
-            url: `http://localhost:3002/api/tweets?search=${param}`
-        }).then(res => {
-            setNasaTweets(res.data);
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err)
-        })
-    }, []);
-
-    return (
+    
+return (
         <div>
-            <NasaModal nasaTweets={nasaTweets}/>
-            <SpaceXModal spaceXTweets={spaceXTweets}/>
+            <button id="nasa-button" name="NASA" onClick={handleClick}>get NASA tweet!</button>
+            <button id="spacex-button" name="Spacex" onClick={handleClick}>Get SpaceX tweet!</button>
         </div>
     )
 }
