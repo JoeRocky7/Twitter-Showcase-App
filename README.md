@@ -17,7 +17,7 @@ You can Visit the App [here](https://twitter-showcase-1.herokuapp.com/)
 
 # Summary 
 
-This a Full-Stack application that utilizes Express for the Back-End server to grab and store data from the official Twitter API, while using React to grab that data from the Back-End and displaying it to the Front-End.
+This is a Full-Stack application that utilizes Express for the Back-End server to grab and store data from the official Twitter API, while using React to grab that data from the Back-End and displaying it to the Front-End.
 This was the first Full-stack application I have created, which taught me how to use a Back-End framework like Express and how it connects with the Front-End. Learning about HTTP requests was really interesting as it plays a huge role in web development and the Internet in general.
 
 A problem I faced during the creation of this application was outputting the tweets that contained images in them. Everytime I would try to output the images I would get an error in the console, which was because the front-end wasn't detecting the images on page load. I overcame this problem with using *optional chaining*, a relatively new feature in Javascript, this method allowed the Front-End to check for any images before loading the page, which in turn solved my problem. 
