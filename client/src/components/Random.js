@@ -16,7 +16,7 @@ const Random = () => {
             .then((res) => setTweets(res.data))
             .catch((err) => console.log(err))
 
-        setIsOpen(!isOpen);
+        setIsOpen(true);
     };
 
     const randomNumber = Math.floor(Math.random() * tweets.length);
@@ -42,7 +42,7 @@ const Random = () => {
                 </button>
                 <button id="gavriel-button" class="random-buttons-2" name="whitegavriel" onClick={handleClick}>Get Windows 96 Tweet!
                     <div>
-                    <img name="whitegavriel" onClick={handleClick} class="windows96-image" src="https://f4.bcbits.com/img/a0122641443_10.jpg" />
+                        <img name="whitegavriel" onClick={handleClick} class="windows96-image" src="https://f4.bcbits.com/img/a0122641443_10.jpg" />
                     </div>
                 </button>
                 <button id="dan-button" class="random-buttons-2" name="DanMasonVapor" onClick={handleClick}>Get Dan Mason Tweet!
@@ -68,7 +68,6 @@ const Random = () => {
                             <div class="stats-container">
                                 <div><i class="fas fa-heart"></i>{displayRandomTweet?.favorite_count}</div>
                                 <div><i class="fas fa-retweet"></i>{displayRandomTweet?.retweet_count}</div>
-
                             </div>
                         </div>
                         <div class="random-modal-section">
