@@ -27,7 +27,6 @@ const ContentCards = ({ contentTweet }) => {
                 </div>
             </div>
         </div>
-
     )
 }
 
