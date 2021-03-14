@@ -18,8 +18,7 @@ const Random = () => {
                 setIsOpen(true);
             })
             .catch((err) => console.log(err))
-
-    };
+            };
 
     return (
         <div>

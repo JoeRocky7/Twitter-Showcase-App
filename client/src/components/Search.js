@@ -33,9 +33,19 @@ const Search = () => {
         e.preventDefault();
         setUserTweets([]);
 
-            axios
-                .get(`/api/tweets/content?content=${input}`)
-                .then((res) => setContentTweets(res.data.statuses))
+            // axios
+            //     .get(`/api/tweets/content?content=${input}`)
+            //     .then((res) => setContentTweets(res.data.statuses))
+            //     .catch((err) => console.log(err))
+
+                getTweets(`/api/tweets/content?content=${input}`,
+                (res) => setContentTweets(res.data.statuses)
+                )
+        }
+
+        const getTweets = (url, callBack) => {
+            axios.get(url)
+                .then(callBack)
                 .catch((err) => console.log(err))
         }
 

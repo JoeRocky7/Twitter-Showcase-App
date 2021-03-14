@@ -15,15 +15,15 @@ server.get("/", (req, res) => {
 });
 
 server.get("/api/tweets/content", (req, res) => {
-    const contentString = req.query.content;
+  const contentString = req.query.content;
 
-    axios({
-      method: 'get',
-      url: `https://api.twitter.com/1.1/search/tweets.json?q=${contentString}&tweet_mode=extended`,
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    })
+  axios({
+    method: 'get',
+    url: `https://api.twitter.com/1.1/search/tweets.json?q=${contentString}&tweet_mode=extended`,
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
     .then(function (response) {
       res.json(response.data);
       console.log(response.data)
@@ -34,32 +34,32 @@ server.get("/api/tweets/content", (req, res) => {
     });
 })
 
-server.get("/api/tweets",  (req, res) => {
+server.get("/api/tweets", (req, res) => {
   const queryString = req.query.search;
   const random = req.query.random;
 
-axios({
-  method: 'get',
-  url: `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${queryString}&tweet_mode=extended`,
-  headers: {
-    Authorization: `Bearer ${access_token}`,
-  },
-})
-  .then(function (response) {
-    if (random) {
-      const tweets = response.data;
-      const randomNumber = Math.floor(Math.random() * tweets.length);
-      const randomTweet = tweets[randomNumber];
-      res.json(randomTweet);
-      return;
-    }
-    res.json(response.data);
-    console.log(response.data)
+  axios({
+    method: 'get',
+    url: `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${queryString}&tweet_mode=extended`,
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
   })
-  .catch(function (error) {
-    console.log(error.response || error);
-    res.status(500).json({ errorMessage: 'Internal server error!'});
-  });
+    .then(function (response) {
+      if (random) {
+        const tweets = response.data;
+        const randomNumber = Math.floor(Math.random() * tweets.length);
+        const randomTweet = tweets[randomNumber];
+        res.json(randomTweet);
+        return;
+      }
+      res.json(response.data);
+      console.log(response.data)
+    })
+    .catch(function (error) {
+      console.log(error.response || error);
+      res.status(500).json({ errorMessage: 'Internal server error!' });
+    });
 });
 
 server.get("/*", (req, res) => {
