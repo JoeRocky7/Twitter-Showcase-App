@@ -3,12 +3,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import UserCards from './UserCards';
 import ContentCards from './ContentCards';
+import TweetCard from './TweetCard';
 
 const Search = () => {
     const [input, setInput] = useState('');
     const [userTweets, setUserTweets] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [contentTweets, setContentTweets] = useState([]);
+    const [tweets, setTweets] = useState([]);
 
     const updateInput = (e) => {
         setInput(e.target.value);
@@ -20,7 +22,7 @@ const Search = () => {
         e.preventDefault();
 
         getTweets(`/api/tweets?search=${input}`,
-            (res) => setUserTweets(res.data)
+            (res) => setTweets(res.data)
         )
 
         input.match(' ') ? alert("Please write an appropriate user handle") : null
@@ -30,10 +32,9 @@ const Search = () => {
 
     const handleClickContent = (e) => {
         e.preventDefault();
-        setUserTweets([]);
 
         getTweets(`/api/tweets/content?content=${input}`,
-            (res) => setContentTweets(res.data.statuses)
+            (res) => setTweets(res.data.statuses)
         )
     }
 
@@ -55,14 +56,14 @@ const Search = () => {
             </div>
 
             <div>
-                {userTweets.map((userTweet) => (
-                    <UserCards isOpen={isOpen} userTweet={userTweet}></UserCards>
+                {tweets.map((tweet) => (
+                    <TweetCard isOpen={isOpen} tweet={tweet}></TweetCard>
                 ))}
             </div>
 
-            {contentTweets.map((contentTweet) => (
+            {/* {contentTweets.map((contentTweet) => (
                 <ContentCards contentTweet={contentTweet}></ContentCards>
-            ))}
+            ))} */}
         </div>
     )
 }
