@@ -36,6 +36,7 @@ server.get("/api/tweets/content", (req, res) => {
 
 server.get("/api/tweets",  (req, res) => {
   const queryString = req.query.search;
+  const random = req.query.random;
 
 axios({
   method: 'get',
@@ -45,6 +46,13 @@ axios({
   },
 })
   .then(function (response) {
+    if (random) {
+      const tweets = response.data;
+      const randomNumber = Math.floor(Math.random() * tweets.length);
+      const randomTweet = tweets[randomNumber];
+      res.json(randomTweet);
+      return;
+    }
     res.json(response.data);
     console.log(response.data)
   })

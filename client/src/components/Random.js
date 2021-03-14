@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const Random = () => {
-    const [tweets, setTweets] = useState([]);
+    const [displayRandomTweet, setDisplayRandomTweet] = useState({});
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = (e) => {
@@ -12,15 +12,14 @@ const Random = () => {
         const param = e.target.name;
 
         axios
-            .get(`/api/tweets?search=${param}`)
-            .then((res) => setTweets(res.data))
+            .get(`/api/tweets?search=${param}&random=yes`)
+            .then((res) => {
+                setDisplayRandomTweet(res.data)
+                setIsOpen(true);
+            })
             .catch((err) => console.log(err))
 
-        setIsOpen(true);
     };
-
-    const randomNumber = Math.floor(Math.random() * tweets.length);
-    const displayRandomTweet = tweets[randomNumber];
 
     return (
         <div>

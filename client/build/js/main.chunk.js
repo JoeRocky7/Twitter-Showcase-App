@@ -476,18 +476,18 @@ var _jsxFileName = "C:\\Users\\joe\\Documents\\coding projects\\twitter-showcase
 
 
 const Random = () => {
-  const [tweets, setTweets] = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]);
+  const [displayRandomTweet, setDisplayRandomTweet] = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({});
   const [isOpen, setIsOpen] = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
 
   const handleClick = e => {
     e.preventDefault();
     const param = e.target.name;
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`/api/tweets?search=${param}`).then(res => setTweets(res.data)).catch(err => console.log(err));
-    setIsOpen(true);
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`/api/tweets?search=${param}&random=yes`).then(res => {
+      setDisplayRandomTweet(res.data);
+      setIsOpen(true);
+    }).catch(err => console.log(err));
   };
 
-  const randomNumber = Math.floor(Math.random() * tweets.length);
-  const displayRandomTweet = tweets[randomNumber];
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
     children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
       class: "random-container",
@@ -502,17 +502,17 @@ const Random = () => {
             src: "https://yt3.ggpht.com/ytc/AAUvwnhTEa6kEyqgSvL3wMaMbUDZtyHvhXehJppDCeOGUCI=s900-c-k-c0x00ffffff-no-rj"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 30,
+            lineNumber: 29,
             columnNumber: 25
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 29,
+          lineNumber: 28,
           columnNumber: 21
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 28,
+        lineNumber: 27,
         columnNumber: 17
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("button", {
         id: "random-button",
@@ -525,17 +525,17 @@ const Random = () => {
             src: "https://i.pinimg.com/originals/9a/21/4b/9a214b68fc4146d02a5b41882e79987c.jpg"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 35,
+            lineNumber: 34,
             columnNumber: 25
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 34,
+          lineNumber: 33,
           columnNumber: 21
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 33,
+        lineNumber: 32,
         columnNumber: 17
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("button", {
         id: "random-button",
@@ -548,17 +548,17 @@ const Random = () => {
             src: "https://ih1.redbubble.net/image.1226836687.3477/st,small,507x507-pad,600x600,f8f8f8.jpg"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 40,
+            lineNumber: 39,
             columnNumber: 25
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 39,
+          lineNumber: 38,
           columnNumber: 21
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 17
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("button", {
         id: "random-button",
@@ -572,17 +572,17 @@ const Random = () => {
             src: "https://f4.bcbits.com/img/a0122641443_10.jpg"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 45,
+            lineNumber: 44,
             columnNumber: 25
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 44,
+          lineNumber: 43,
           columnNumber: 21
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 42,
         columnNumber: 17
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("button", {
         id: "random-button",
@@ -596,22 +596,22 @@ const Random = () => {
             src: "https://f4.bcbits.com/img/a1494578543_5.jpg"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 50,
+            lineNumber: 49,
             columnNumber: 25
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 49,
+          lineNumber: 48,
           columnNumber: 21
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 48,
+        lineNumber: 47,
         columnNumber: 17
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 13
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
       class: "card-container",
@@ -625,12 +625,12 @@ const Random = () => {
             children: "X"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 58,
+            lineNumber: 57,
             columnNumber: 29
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 57,
+          lineNumber: 56,
           columnNumber: 25
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
           class: "modal-header",
@@ -640,25 +640,25 @@ const Random = () => {
               src: displayRandomTweet === null || displayRandomTweet === void 0 ? void 0 : displayRandomTweet.user.profile_image_url
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 62,
+              lineNumber: 61,
               columnNumber: 33
             }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
               children: displayRandomTweet === null || displayRandomTweet === void 0 ? void 0 : displayRandomTweet.user.name
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 63,
+              lineNumber: 62,
               columnNumber: 33
             }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
               id: "screen-name",
               children: ["@ ", displayRandomTweet === null || displayRandomTweet === void 0 ? void 0 : displayRandomTweet.user.screen_name]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 64,
+              lineNumber: 63,
               columnNumber: 33
             }, undefined)]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 61,
+            lineNumber: 60,
             columnNumber: 29
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
             class: "stats-container",
@@ -667,34 +667,34 @@ const Random = () => {
                 class: "fas fa-heart"
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 69,
+                lineNumber: 68,
                 columnNumber: 38
               }, undefined), displayRandomTweet === null || displayRandomTweet === void 0 ? void 0 : displayRandomTweet.favorite_count]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 69,
+              lineNumber: 68,
               columnNumber: 33
             }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
               children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("i", {
                 class: "fas fa-retweet"
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 70,
+                lineNumber: 69,
                 columnNumber: 38
               }, undefined), displayRandomTweet === null || displayRandomTweet === void 0 ? void 0 : displayRandomTweet.retweet_count]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 70,
+              lineNumber: 69,
               columnNumber: 33
             }, undefined)]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 68,
+            lineNumber: 67,
             columnNumber: 29
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 60,
+          lineNumber: 59,
           columnNumber: 25
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
           class: "random-modal-section",
@@ -702,27 +702,27 @@ const Random = () => {
             children: displayRandomTweet === null || displayRandomTweet === void 0 ? void 0 : displayRandomTweet.full_text
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 74,
+            lineNumber: 73,
             columnNumber: 29
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 73,
+          lineNumber: 72,
           columnNumber: 25
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 55,
         columnNumber: 21
       }, undefined) : null
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 53,
       columnNumber: 13
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 26,
+    lineNumber: 25,
     columnNumber: 9
   }, undefined);
 };
