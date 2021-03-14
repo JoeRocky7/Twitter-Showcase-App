@@ -15,38 +15,33 @@ const Search = () => {
     }
 
     // Username Tweets
-    
+
     const handleClick = (e) => {
         e.preventDefault();
-        
-            getTweets(`/api/tweets?search=${input}`,
-            (res) => setUserTweets(res.data)
-            )
 
-            input.match(' ') ? alert("Please write an appropriate user handle") : null
+        getTweets(`/api/tweets?search=${input}`,
+            (res) => setUserTweets(res.data)
+        )
+
+        input.match(' ') ? alert("Please write an appropriate user handle") : null
     }
 
     // Content Tweets
-    
+
     const handleClickContent = (e) => {
         e.preventDefault();
         setUserTweets([]);
 
-            // axios
-            //     .get(`/api/tweets/content?content=${input}`)
-            //     .then((res) => setContentTweets(res.data.statuses))
-            //     .catch((err) => console.log(err))
+        getTweets(`/api/tweets/content?content=${input}`,
+            (res) => setContentTweets(res.data.statuses)
+        )
+    }
 
-                getTweets(`/api/tweets/content?content=${input}`,
-                (res) => setContentTweets(res.data.statuses)
-                )
-        }
-
-        const getTweets = (url, callBack) => {
-            axios.get(url)
-                .then(callBack)
-                .catch((err) => console.log(err))
-        }
+    const getTweets = (url, callBack) => {
+        axios.get(url)
+            .then(callBack)
+            .catch((err) => console.log(err))
+    }
 
     return (
         <div>
