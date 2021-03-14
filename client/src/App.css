@@ -219,8 +219,6 @@ button:focus {
     column-gap: 10px;
 }
 
-
-
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -231,8 +229,6 @@ button:focus {
     padding-bottom: 20px;
     border-bottom: 1px solid gray;
 }
-
-
 
 .random-modal {
   display: flex;
