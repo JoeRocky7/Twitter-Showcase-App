@@ -8,7 +8,7 @@ const Home = () => {
             that utilizes the Twitter API to retrieve twitter timeline information.
             You can search based on user or content in the search page, or utilize
             the random tweet page to pull a random tweet from the selected choices.
-                    </p>
+            </p>
             <p id="second-home-paragraph">Hope you enjoy!</p>
         </div>
     )

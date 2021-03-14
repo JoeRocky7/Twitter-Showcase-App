@@ -285,49 +285,12 @@ button:focus {
 }
 
 /* -----------------------------------------------------RANDOM BUTTONS------------------------------------------------------------ */
-
-#nasa-button {
+#random-button {
     background-color: white;
     padding: 25px;
-    
     font-family: 'Noto Sans KR', sans-serif;
     outline: none;
     border: 3px solid black;
-}
-
-#spacex-button {
-    background-color: white;
-    padding: 25px;
-   
-    font-family: 'Noto Sans KR', sans-serif;
-    border: 3px solid black;
-}
-
-#elon-button {
-    background-color: white;
-    padding: 25px;
-    
-    font-family: 'Noto Sans KR', sans-serif;
-    border: 3px solid black;
-
-}
-
-#gavriel-button {
-    background-color: white;
-    padding: 25px;
-    
-    font-family: 'Noto Sans KR', sans-serif;
-    border: 3px solid black;
-
-}
-
-#dan-button {
-    background-color: white;
-    padding: 25px;
-    
-    font-family: 'Noto Sans KR', sans-serif;
-    border: 3px solid black;
-
 }
 
 .close-button-container {
