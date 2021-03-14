@@ -769,7 +769,7 @@ const Search = () => {
 
   const handleClick = e => {
     e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`/api/tweets?search=${input}`).then(res => setUserTweets(res.data)).catch(err => console.log(err));
+    getTweets(`/api/tweets?search=${input}`, res => setUserTweets(res.data));
     input.match(' ') ? alert("Please write an appropriate user handle") : null;
   }; // Content Tweets
 
@@ -798,7 +798,7 @@ const Search = () => {
         value: input
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 55,
+        lineNumber: 54,
         columnNumber: 17
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
         class: "search-buttons",
@@ -809,7 +809,7 @@ const Search = () => {
           children: "User"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 58,
+          lineNumber: 57,
           columnNumber: 21
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("button", {
           id: "button-content",
@@ -819,17 +819,17 @@ const Search = () => {
           children: "Content"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 59,
+          lineNumber: 58,
           columnNumber: 21
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 57,
+        lineNumber: 56,
         columnNumber: 17
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 53,
       columnNumber: 13
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {
       children: userTweets.map(userTweet => /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_UserCards__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -837,23 +837,23 @@ const Search = () => {
         userTweet: userTweet
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 65,
+        lineNumber: 64,
         columnNumber: 21
       }, undefined))
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 62,
       columnNumber: 13
     }, undefined), contentTweets.map(contentTweet => /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])(_ContentCards__WEBPACK_IMPORTED_MODULE_4__["default"], {
       contentTweet: contentTweet
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 69,
       columnNumber: 17
     }, undefined))]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 53,
+    lineNumber: 52,
     columnNumber: 9
   }, undefined);
 };

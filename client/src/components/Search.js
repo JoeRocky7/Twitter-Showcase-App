@@ -18,11 +18,10 @@ const Search = () => {
     
     const handleClick = (e) => {
         e.preventDefault();
-
-        axios
-            .get(`/api/tweets?search=${input}`)
-            .then((res) => setUserTweets(res.data))
-            .catch((err) => console.log(err))
+        
+            getTweets(`/api/tweets?search=${input}`,
+            (res) => setUserTweets(res.data)
+            )
 
             input.match(' ') ? alert("Please write an appropriate user handle") : null
     }
