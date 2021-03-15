@@ -12,7 +12,6 @@ const TweetCard = ({ tweet }) => {
                             <img src={tweet.user.profile_image_url} />
                             <div>{tweet.user.name}</div>
                             <div id="screen-name">@ {tweet.user.screen_name}</div>
-
                         </div>
 
                         <div class="stats-container">
